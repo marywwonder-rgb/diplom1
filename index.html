@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>МКУ «Центр бухгалтерского учета и отчетности» Семилукского района</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+                #header {
+            background: #1a3a5c;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        #header.hide {
+            transform: translateY(-100%);
+        }
+        
+        #header.show {
+            transform: translateY(0);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+        
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .navbar a:hover {
+            color: #ffc107;
+        }
+        
+        body {
+            padding-top: 70px;
+        
+        }
+        .carousel-item img {
+            height: 550px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        /* Стили для текста поверх фото */
+        .carousel-caption {
+            background: rgba(26, 58, 92, 0.8);
+            border-radius: 16px;
+            padding: 20px 30px;
+            position: absolute;
+            bottom: 100px;
+            left: 10%;
+            right: 10%;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        .carousel-caption h5 {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .carousel-caption p {
+            font-size: 16px;
+            color: white;
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-caption {
+                padding: 12px 20px;
+                bottom: 40px;
+            }
+            .carousel-caption h5 {
+                font-size: 16px;
+            }
+            .carousel-caption p {
+                font-size: 12px;
+            }
+        }
+        
+        /* Стили для футера */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        body {
+    margin: 0;
+    padding: 0;
+}
+
+#footer {
+    width: 100%;
+    background: #1a3a5c;
+    margin: 0;
+    padding: 50px 0 30px 0;
+
+        }
+        
+        /* Плавная прокрутка */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Отступ для якорей (чтобы меню не перекрывало заголовок) */
+        section {
+            scroll-margin-top: 80px;
+        }
+        
+        /* Разделительная линия между блоками */
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, #1a3a5c, #ffc107, #1a3a5c);
+            width: 100px;
+            margin: 0 auto 40px auto;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== МЕНЮ (ЯКОРНЫЕ ССЫЛКИ) ===== -->
+<header id="header">
+    <div class="container d-flex justify-content-center">
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto" href="#hero">Главная</a></li>
+                <li><a class="nav-link scrollto" href="#about">Об учреждении</a></li>
+                <li><a class="nav-link scrollto" href="#documents">Документы</a></li>
+                <li><a class="nav-link scrollto" href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- ===== БЛОК 1: ГЛАВНАЯ (HERO / КАРУСЕЛЬ) ===== -->
+<section id="hero">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+        </div>
+        
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/accounting_1.jpg" class="d-block w-100" alt="Бухгалтерский учет">
+                <div class="carousel-caption">
+                    <h5>МКУ «Центр бухгалтерского учета и отчетности»</h5>
+                    <p>Семилукского муниципального района Воронежской области</p>
+                </div>
+            </div>
+            
+            <div class="carousel-item">
+                <img src="images/accounting_2.jpg" class="d-block w-100" alt="Финансовое обслуживание">
+                <div class="carousel-caption">
+                    <h5>Централизованное бухгалтерское обслуживание</h5>
+                    <p>Органов местного самоуправления и бюджетных учреждений района</p>
+                </div>
+            </div>
+            
+            <div class="carousel-item">
+                <img src="images/office_work.jpg" class="d-block w-100" alt="Работа с отчетностью">
+                <div class="carousel-caption">
+                    <h5>Профессиональная отчетность и контроль</h5>
+                    <p>Соблюдение требований бюджетного законодательства РФ</p>
+                </div>
+            </div>
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</section>
+
+<!-- ===== БЛОК 2: ОБ УЧРЕЖДЕНИИ (ПОЛНАЯ ВЕРСИЯ) ===== -->
+<section id="about" style="padding: 60px 0; background: #f8f9fa;">
+    <div class="container">
+        <div class="section-divider"></div>
+        <h2 style="color: #1a3a5c; font-size: 32px; font-weight: bold; text-align: center; margin-bottom: 40px;">Об учреждении</h2>
+        
+        <!-- Две фотографии здания рядом -->
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; max-width: 1000px; margin: 0 auto 40px auto; justify-content: center;">
+            <div style="flex: 1; min-width: 250px; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <img src="images/zdanie1.jpg" alt="Здание учреждения" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+            </div>
+            <div style="flex: 1; min-width: 250px; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <img src="images/zdanie2.jpg" alt="Здание учреждения вид 2" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+            </div>
+        </div>
+
+        <!-- Основной текст -->
+        <div style="max-width: 1000px; margin: 0 auto 40px auto;">
+            <p style="font-size: 16px; line-height: 1.6; color: #333; margin-bottom: 20px; text-align: justify;">
+                МКУ «Центр бухгалтерского учета и отчетности» Семилукского муниципального района Воронежской области является специализированным муниципальным учреждением, созданным для централизованного бухгалтерского и финансового обслуживания органов местного самоуправления поселений и подведомственных формирований бюджетных учреждений районов.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6; color: #333; margin-bottom: 20px; text-align: justify;">
+                Учреждение осуществляет ведение бухгалтерского учета, формирование отчетности, а также контроль за целевым использованием бюджетных средств.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6; color: #333; margin-bottom: 20px; text-align: justify;">
+                Деятельность Центра направлена на повышение эффективности финансового управления, обеспечение единой методологии учета и снижение нагрузки на бухгалтерские службы обслуживаемых учреждений.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6; color: #333; margin-bottom: 20px; text-align: justify;">
+                Центр обеспечивает полное и достоверное отражение всех хозяйственных операций, своевременное предоставление отчетности в вышестоящие органы, а также соблюдение требований бюджетного законодательства Российской Федерации.
+            </p>
+        </div>
+        
+        <!-- Блок с реквизитами (сетка 2 колонки) -->
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; max-width: 1000px; margin: 0 auto;">
+            
+            <!-- Левая колонка -->
+            <div style="flex: 1; min-width: 280px;">
+                
+                <!-- ОГРН + ИНН/КПП в одной строке -->
+                <div style="display: flex; gap: 20px; margin-bottom: 25px; flex-wrap: wrap;">
+                    <div style="background: white; padding: 15px 20px; border-radius: 12px; flex: 1;">
+                        <strong style="color: #1a3a5c; font-size: 14px;">ОГРН</strong>
+                        <div style="font-size: 18px; font-weight: bold; color: #1a3a5c;">1223600012041</div>
+                        <div style="font-size: 12px; color: #999;">от 21 июля 2022 г.</div>
+                    </div>
+                    <div style="background: white; padding: 15px 20px; border-radius: 12px; flex: 1;">
+                        <strong style="color: #1a3a5c; font-size: 14px;">ИНН / КПП</strong>
+                        <div style="font-size: 18px; font-weight: bold; color: #1a3a5c;">3628021914 / 362801001</div>
+                    </div>
+                </div>
+                
+                <!-- Адрес -->
+                <div style="background: white; padding: 15px 20px; border-radius: 12px; margin-bottom: 25px;">
+                    <strong style="color: #1a3a5c; font-size: 14px;">Адрес</strong>
+                    <div style="font-size: 16px; color: #333;">Воронежская область, город Семилуки, ул. Ленина, 15а, оф. 303</div>
+                </div>
+                
+                <!-- Руководитель -->
+                <div style="background: white; padding: 15px 20px; border-radius: 12px; margin-bottom: 25px;">
+                    <strong style="color: #1a3a5c; font-size: 14px;">Руководитель</strong>
+                    <div style="font-size: 16px; font-weight: 500; color: #333;">Директор Позднякова Яна Ринатовна</div>
+                    <div style="font-size: 12px; color: #999;">с 13 мая 2022 г.</div>
+                </div>
+                
+                <!-- Основной вид деятельности -->
+                <div style="background: white; padding: 15px 20px; border-radius: 12px; margin-bottom: 25px;">
+                    <strong style="color: #1a3a5c; font-size: 14px;">Основной вид деятельности</strong>
+                    <div style="font-size: 16px; color: #333;">Деятельность по оказанию услуг в области бухгалтерского учета (69.20.2)</div>
+                    <div style="font-size: 12px; color: #ccc; margin-top: 5px;">Дополнительные виды деятельности не указаны</div>
+                </div>
+            </div>
+            
+            <!-- Правая колонка -->
+            <div style="flex: 1; min-width: 280px;">
+                
+                <!-- Налоговый орган -->
+                <div style="background: white; padding: 15px 20px; border-radius: 12px; margin-bottom: 25px;">
+                    <strong style="color: #1a3a5c; font-size: 14px;">Налоговый орган</strong>
+                    <div style="font-size: 16px; color: #333;">Межрайонная инспекция ФНС России № 1 по Воронежской области</div>
+                    <div style="font-size: 12px; color: #999;">с 21 июля 2022 г.</div>
+                </div>
+                
+                <!-- Коды статистики -->
+                <div style="background: white; padding: 15px 20px; border-radius: 12px;">
+                    <strong style="color: #1a3a5c; font-size: 14px;">Коды статистики</strong>
+                    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px;">
+                        <div style="background: #f0f2f5; padding: 5px 12px; border-radius: 20px; font-size: 14px;">
+                            <strong>ОКПО</strong> 74355227
+                        </div>
+                        <div style="background: #f0f2f5; padding: 5px 12px; border-radius: 20px; font-size: 14px;">
+                            <strong>ОКАТО</strong> 20249501000
+                        </div>
+                        <div style="background: #f0f2f5; padding: 5px 12px; border-radius: 20px; font-size: 14px;">
+                            <strong>ОКТМО</strong> 20649101001
+                        </div>
+                        <div style="background: #f0f2f5; padding: 5px 12px; border-radius: 20px; font-size: 14px;">
+                            <strong>ОКФС</strong> 14 (Муниципальная собственность)
+                        </div>
+                        <div style="background: #f0f2f5; padding: 5px 12px; border-radius: 20px; font-size: 14px;">
+                            <strong>ОКОГУ</strong> 4210007 (Муниципальные организации)
+                        </div>
+                        <div style="background: #f0f2f5; padding: 5px 12px; border-radius: 20px; font-size: 14px;">
+                            <strong>ОКОПФ</strong> 75404 (Муниципальные казенные учреждения)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== БЛОК 3: ДОКУМЕНТЫ ===== -->
+<section id="documents" style="padding: 60px 0; background: white;">
+    <div class="container">
+        <div class="section-divider"></div>
+        <h2 style="color: #1a3a5c; font-size: 28px; font-weight: bold; text-align: center; margin-bottom: 40px;">Документы</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+            
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 16px; text-align: center; width: 250px;">
+                <h3 style="color: #1a3a5c; margin-bottom: 15px;">Устав</h3>
+                <a href="ustav.html" style="color: #ffc107; background: #1a3a5c; padding: 8px 20px; border-radius: 30px; text-decoration: none; display: inline-block;">Скачать →</a>
+            </div>
+            
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 16px; text-align: center; width: 250px;">
+                <h3 style="color: #1a3a5c; margin-bottom: 15px;">Соглашение</h3>
+                <a href="soglashenie.html" style="color: #ffc107; background: #1a3a5c; padding: 8px 20px; border-radius: 30px; text-decoration: none; display: inline-block;">Скачать →</a>
+            </div>
+            
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 16px; text-align: center; width: 250px;">
+                <h3 style="color: #1a3a5c; margin-bottom: 15px;">Учетная политика</h3>
+                <a href="uchet_politika.html" style="color: #ffc107; background: #1a3a5c; padding: 8px 20px; border-radius: 30px; text-decoration: none; display: inline-block;">Скачать →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== БЛОК 4: КОНТАКТЫ ===== -->
+<!-- ===== БЛОК 4: КОНТАКТЫ (ПОЛНАЯ ВЕРСИЯ) ===== -->
+<section id="contacts" style="padding: 60px 0; background: #f8f9fa;">
+    <div class="container">
+        <div class="section-divider"></div>
+        <h2 style="color: #1a3a5c; font-size: 32px; font-weight: bold; text-align: center; margin-bottom: 40px;">Контакты</h2>
+        
+        <!-- Верхняя часть: телефон + почта + график работы -->
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; max-width: 1000px; margin: 0 auto 50px auto;">
+            
+            <!-- Левая колонка: Телефон и Email -->
+            <div style="flex: 1; min-width: 250px; background: white; border-radius: 20px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <div style="margin-bottom: 25px;">
+                    <strong style="color: #1a3a5c; font-size: 18px;">📞 Телефон</strong>
+                    <div style="font-size: 20px; font-weight: bold; color: #1a3a5c; margin-top: 8px;">+7 (473) 725-09-02</div>
+                </div>
+                <div>
+                    <strong style="color: #1a3a5c; font-size: 18px;">✉ Электронная почта</strong>
+                    <div style="font-size: 16px; margin-top: 8px;">
+                        <a href="mailto:Semil.cbu@mail.ru" style="color: #1a3a5c; text-decoration: none;">Semil.cbu@mail.ru</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Правая колонка: График работы -->
+            <div style="flex: 1; min-width: 250px; background: white; border-radius: 20px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <strong style="color: #1a3a5c; font-size: 18px;">🕒 График работы</strong>
+                <div style="margin-top: 15px; line-height: 1.8;">
+                    <div><strong>Пн, Вт, Ср, Чт:</strong> с 8:00 до 17:00</div>
+                    <div style="font-size: 13px; color: #999; margin-left: 20px;">перерыв с 12:00 до 14:45</div>
+                    <div style="margin-top: 10px;"><strong>Пт:</strong> с 8:00 до 15:45</div>
+                    <div style="font-size: 13px; color: #999; margin-left: 20px;">перерыв с 12:00 до 12:45</div>
+                    <div style="margin-top: 10px;"><strong>Сб, Вс:</strong> выходные</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Адрес + Яндекс.Карты -->
+        <div style="max-width: 1000px; margin: 0 auto 50px auto; background: white; border-radius: 20px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <strong style="color: #1a3a5c; font-size: 18px;">📍 Адрес</strong>
+            <div style="font-size: 16px; color: #333; margin: 10px 0;">Воронежская область, город Семилуки, ул. Ленина, 15а, оф. 303</div>
+            
+            <!-- Яндекс.Карта (iframe) -->
+            <div style="margin-top: 20px; border-radius: 16px; overflow: hidden;">
+                <iframe src="https://yandex.ru/map-widget/v1/?ll=39.033533%2C51.684083&z=15&ol=geo&ouri=ymapsbm1%3A%2F%2Forg%3Foid%3D11223723915" 
+                        width="100%" 
+                        height="350" 
+                        frameborder="0"
+                        style="border-radius: 16px;"
+                        allowfullscreen="true">
+                </iframe>
+            </div>
+            <div style="text-align: right; margin-top: 10px;">
+                <a href="https://yandex.ru/maps/org/mku_tsentralizovannaya_bukhgalteriya_semilukskogo_munitsipalnogo_rayona/11223723915/" 
+                   target="_blank" 
+                   style="color: #ffc107; background: #1a3a5c; padding: 8px 20px; border-radius: 30px; text-decoration: none; font-size: 14px; display: inline-block;">
+                    Открыть на Яндекс.Картах →
+                </a>
+            </div>
+        </div>
+        
+        <!-- Наименование поселений -->
+<div style="max-width: 1000px; margin: 0 auto; background: white; border-radius: 20px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+    <strong style="color: #1a3a5c; font-size: 18px;">🏘 Наименование поселений</strong>
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
+        
+        <!-- ГОРОДСКИЕ ПОСЕЛЕНИЯ (со ссылками) -->
+        <div style="flex: 1; min-width: 200px;">
+            <div style="font-weight: bold; color: #1a3a5c; margin-bottom: 8px;">Городские поселения</div>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 6px;">• <a href="https://gorod-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">город Семилуки</a></li>
+                <li style="margin-bottom: 6px;">• <a href="https://latnaya-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Латненское городское поселение</a></li>
+                <li style="margin-bottom: 6px;">• <a href="https://strelica-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Стрелицкое городское поселение</a></li>
+            </ul>
+        </div>
+        
+        <!-- СЕЛЬСКИЕ ПОСЕЛЕНИЯ (со ссылками и ФИО) -->
+        <div style="flex: 2; min-width: 350px;">
+            <div style="font-weight: bold; color: #1a3a5c; margin-bottom: 8px;">Сельские поселения</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+                <!-- Левая колонка -->
+                <ul style="list-style: none; padding: 0; margin: 0; flex: 1;">
+                    <li style="margin-bottom: 10px;">
+                        <strong>• <a href="https://gubarevo-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Губарёвское</a></strong><br>
+                        <span style="font-size: 13px; color: #555;">Левшина Лидия Ивановна</span>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>• <a href="https://devica-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Девицкое</a></strong>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>• <a href="https://zemlyansk-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Землянское</a></strong><br>
+                        <span style="font-size: 13px; color: #555;">Титаренко Ирина Владимировна</span>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>• <a href="https://latnoe-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Латненское</a></strong><br>
+                        <span style="font-size: 13px; color: #555;">Мальцева Татьяна Вячеславовна</span>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>• <a href="https://losevo-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Лосевское</a></strong><br>
+                        <span style="font-size: 13px; color: #555;">Елфимова Галина Андреевна</span>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>• <a href="https://medvezhe-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Медвеженское</a></strong><br>
+                        <span style="font-size: 13px; color: #555;">Косинова Людмила Николаевна</span>
+                    </li>
+                </ul>
+                <!-- Правая колонка -->
+                <ul style="list-style: none; padding: 0; margin: 0; flex: 1;">
+                    <li style="margin-bottom: 10px;">
+                        <strong>• <a href="https://nveduga-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Нижневедугское</a></strong><br>
+                        <span style="font-size: 13px; color: #555;">Мальцева Татьяна Вячеславовна</span>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>• <a href="https://novosilsk-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Новосильское</a></strong><br>
+                        <span style="font-size: 13px; color: #555;">Тацева Яна Михайловна</span>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>• <a href="https://perlevka-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Перлёвское</a></strong>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>• <a href="https://selo-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Семилукское</a></strong>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>• <a href="https://stadnica-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Стадницкое</a></strong>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>• <a href="https://sveduga-semiluki-r36.gosuslugi.ru/" target="_blank" style="color: #1a3a5c; text-decoration: none; border-bottom: 1px dotted #1a3a5c;">Староведугское</a></strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== НИЖНИЙ КОЛОНТИТУЛ (ФУТЕР) ===== -->
+<footer id="footer" style="background: #1a3a5c; color: #f0f0f0; padding: 50px 0 30px 0; width: 100%;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
+            
+            <div style="flex: 1; min-width: 200px;">
+                <h3 style="font-size: 24px; font-weight: bold; color: #ffc107; margin-bottom: 20px;">ДОКУМЕНТЫ</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 12px;"><a href="#" style="color: #f0f0f0; text-decoration: none;">Устав</a></li>
+                    <li style="margin-bottom: 12px;"><a href="#" style="color: #f0f0f0; text-decoration: none;">Соглашение</a></li>
+                    <li style="margin-bottom: 12px;"><a href="#" style="color: #f0f0f0; text-decoration: none;">Учетная политика</a></li>
+                </ul>
+            </div>
+            
+            <div style="flex: 1; min-width: 200px;">
+                <h3 style="font-size: 24px; font-weight: bold; color: #ffc107; margin-bottom: 20px;">ОБ УЧРЕЖДЕНИИ</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#about" style="color: #f0f0f0; text-decoration: none;">Подробнее</a></li>
+                </ul>
+            </div>
+            
+            <div style="flex: 1; min-width: 260px;">
+                <h3 style="font-size: 24px; font-weight: bold; color: #ffc107; margin-bottom: 20px;">КОНТАКТЫ</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 10px;">Телефон: <a href="tel:+74737250902" style="color: #f0f0f0; text-decoration: none;">+7 (473) 725-09-02</a></li>
+                    <li style="margin-bottom: 10px;">Email: <a href="mailto:Semil.cbu@mail.ru" style="color: #f0f0f0; text-decoration: none;">Semil.cbu@mail.ru</a></li>
+                    <li style="margin-bottom: 10px;">Адрес: Воронежская область, г. Семилуки, ул. Ленина, 15а, оф. 303</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 14px; color: #aaaaaa;">
+            © 2026 МКУ «Центр бухгалтерского учета и отчетности» Семилукского муниципального района Воронежской области. Все права защищены.
+        </div>
+    </div>
+</footer>
+
+    <script>
+        let lastScroll = 0;
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('hide');
+                header.classList.add('show');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !header.classList.contains('hide')) {
+                header.classList.remove('show');
+                header.classList.add('hide');
+            } 
+            else if (currentScroll < lastScroll && header.classList.contains('hide')) {
+                header.classList.remove('hide');
+                header.classList.add('show');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
